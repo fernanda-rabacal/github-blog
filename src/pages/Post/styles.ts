@@ -22,6 +22,11 @@ export const Links = styled.span`
     gap: 0.5rem;
     text-decoration: none;
     color: ${({theme}) => theme.blue};
+    border-bottom: 1px solid transparent;
+
+      &:hover  {
+        border-color: ${({theme}) => theme.blue};
+      }
   }
 `
 
@@ -40,4 +45,8 @@ export const ProfileInformations = styled.div`
 
 export const PostContent = styled.p`
   margin: 2.5rem 2rem;
+
+  img {
+    width: 97%;
+  }
 `

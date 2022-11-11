@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 export const HomeContainer = styled.div`
 `
@@ -17,6 +18,12 @@ export const Profile = styled.div`
     width: 9.25rem;
     height: 9.25rem;
     border-radius: 6px;
+  }
+
+  p {
+    display: flex;
+    gap: 0.4rem;
+    align-items: center;
   }
 `
 
@@ -39,6 +46,11 @@ export const Informations = styled.div`
       color: ${({theme}) => theme.blue};
       font-weight: 700;
       gap: 0.2rem;
+      border-bottom: 1px solid transparent;
+
+      &:hover  {
+        border-color: ${({theme}) => theme.blue};
+      }
     }
    }
 `
@@ -51,7 +63,7 @@ export const Links = styled.div`
   margin-top: 1.5rem;
 `
 
-export const SearchSection = styled.div`
+export const SearchSection = styled.form`
   width: 100%;
   margin-top: 4.5rem;
 
@@ -73,6 +85,10 @@ export const SearchSection = styled.div`
     &::placeholder {
       color: ${({theme}) => theme["base-label"]};
     }
+
+    &:focus {
+      border-color: ${({theme}) => theme["base-span"]}
+    }
   }
 `
 
@@ -84,17 +100,45 @@ export const Posts = styled.main`
   margin-top: 3rem;
 `
 
-export const PostCard = styled.a`
-  cursor: pointer;
+export const PostCard = styled(Link)`
   padding: 2rem;
+  text-decoration: none;
   border-radius: 8px;
+  color: ${({theme}) => theme["base-text"]};
   background: ${({theme}) => theme["base-post"]};
+  border: 1px solid transparent;
   height: 16.25rem;
+  
+  &:hover {
+    transition: 0.4s;
+    border-color: ${({theme}) => theme["base-span"]}
+  }
 
-  span {
+  div {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1.25rem;
+    margin-bottom: 2.25rem;
+    
+    strong {
+      flex: 1;
+      font-size: 1.25rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+    }
+
+    span {
+      width: max-content
+    }
+  }
+
+  p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-height: 25.6px;
   }
 `
