@@ -15,12 +15,9 @@ export const GlobalStyle = createGlobalStyle`
     background: ${({theme}) => theme["base-background"]};
     color: ${({theme}) => theme["base-text"]};
     -webkit-font-smoothing: antialiased;
-
-    .container {
-      max-width: 864px;  
-      margin-inline: auto;
-      margin-bottom: 2rem;
-    }
+    max-width: 864px;  
+    margin-inline: auto;
+    margin-bottom: 2rem;
   }
 
   body, input, textarea, button {
