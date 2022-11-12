@@ -5,6 +5,7 @@ import { api } from "../../lib/axios";
 import { PostData } from "../Home"
 import ReactMarkdown from 'react-markdown'
 import { PostHeader } from "./PostHeader";
+import { Comments } from "./Comments";
 
 const username = import.meta.env.VITE_GITHUB_USERNAME;
 const repo = import.meta.env.VITE_GITHUB_REPONAME;
@@ -30,6 +31,8 @@ export function PostPage() {
       <PostContent>
         <ReactMarkdown children={post.body} />
       </PostContent>
+
+      <Comments postId={postId} />
     </>
   )
 }

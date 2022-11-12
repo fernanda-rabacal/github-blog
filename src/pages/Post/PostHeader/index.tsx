@@ -38,7 +38,7 @@ export function PostHeader({post} : PostProps) {
         <ProfileInformations>
           <span>
             <FontAwesomeIcon icon={faGithub}/>
-            {post.user.login}
+            {/* {post.user.login} */}
             </span>
           <span>
             <FontAwesomeIcon icon={faCalendarDay}/>
