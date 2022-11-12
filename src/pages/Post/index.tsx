@@ -1,6 +1,6 @@
 import { PostContent } from "./styles";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { api } from "../../lib/axios";
 import { PostData } from "../Home"
 import ReactMarkdown from 'react-markdown'
@@ -14,11 +14,11 @@ export function PostPage() {
   const [post, setPost] = useState<PostData>({} as PostData)
   const { postId } = useParams();
 
-  async function getPost() {
+  const getPost = useCallback(async() => {
     const response = await api.get(`/repos/${username}/${repo}/issues/${postId}`);
 
     setPost(response.data)
-  }
+  }, [post])
 
   useEffect(() => {
     getPost()

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { CommentContainer, CommentsContainer, ContentContainer } from "./styles";
 import { relativeDateFormatter } from "../../../utils/formatter";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -25,11 +25,11 @@ const repo = import.meta.env.VITE_GITHUB_REPONAME;
 export function Comments({postId} : CommentsProps) {
   const [comments, setComments] = useState<Comments[]>([])
 
-  async function getComments() {
+  const getComments = useCallback(async() => {
     const response = await api.get(`/repos/${username}/${repo}/issues/${postId}/comments`);
 
     setComments(response.data)
-  }
+  }, [comments])
 
   useEffect(() => {
     getComments()
